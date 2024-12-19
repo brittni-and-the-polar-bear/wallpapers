@@ -1,7 +1,7 @@
 {
-  "name": "genart-template",
-  "version": "3.0.1",
-  "description": "a template for new generative art projects using the @batpb/genart library.",
+  "name": "wallpapers",
+  "version": "1.0.0",
+  "description": "An algorithmic art project designed to create beautiful, unique, and scalable wallpapers for a variety of devices.",
   "private": true,
   "scripts": {
     "build:dev": "webpack --mode development",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brittni-and-the-polar-bear/genart-template.git"
+    "url": "git+https://github.com/brittni-and-the-polar-bear/wallpapers.git"
   },
   "keywords": [
     "algorithmic art",
@@ -25,7 +25,8 @@
     "p5js",
     "p5-js",
     "typescript",
-    "template"
+    "wallpapers",
+    "designs"
   ],
   "author": {
     "name": "brittni and the polar bear",
@@ -43,9 +44,9 @@
   ],
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/brittni-and-the-polar-bear/genart-template/issues"
+    "url": "https://github.com/brittni-and-the-polar-bear/wallpapers/issues"
   },
-  "homepage": "https://github.com/brittni-and-the-polar-bear/genart-template#readme",
+  "homepage": "https://github.com/brittni-and-the-polar-bear/wallpapers#readme",
   "dependencies": {
     "@batpb/genart": "^2.0.0-rc2",
     "p5": "^1.11.2"
