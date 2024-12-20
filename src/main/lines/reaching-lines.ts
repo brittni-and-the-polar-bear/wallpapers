@@ -21,24 +21,4 @@
  * for full license details.
  */
 
-export interface Design {
-    /**
-     * Save single image of the design.
-     */
-    readonly save: () => void;
-
-    /**
-     * Save full wallpaper set for the design.
-     */
-    readonly saveSet: () => void;
-
-    /**
-     * Save individual color images of the design.
-     */
-    readonly saveColors: () => void;
-
-    /**
-     * Save the full palette of the design.
-     */
-    readonly savePalette: () => void;
-}
+// horizontal solid color lines

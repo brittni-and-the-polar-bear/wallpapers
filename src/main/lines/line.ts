@@ -21,24 +21,34 @@
  * for full license details.
  */
 
-export interface Design {
-    /**
-     * Save single image of the design.
-     */
-    readonly save: () => void;
+import P5Lib from 'p5';
 
-    /**
-     * Save full wallpaper set for the design.
-     */
-    readonly saveSet: () => void;
+import { CanvasContext, Color, Coordinate, CoordinateMode, P5Context } from '@batpb/genart';
 
-    /**
-     * Save individual color images of the design.
-     */
-    readonly saveColors: () => void;
+export class Line {
+    #start: Coordinate;
+    #end: Coordinate;
+    #strokeWeightMultiplier: number = 1;
+    #color: Color;
 
-    /**
-     * Save the full palette of the design.
-     */
-    readonly savePalette: () => void;
+    public constructor(startCoordinate: Coordinate, endCoordinate: Coordinate, color: Color, strokeWeightMultiplier?: number) {
+        this.#start = startCoordinate;
+        this.#end = endCoordinate;
+        this.#color = color;
+
+        if (strokeWeightMultiplier) {
+            this.#strokeWeightMultiplier = strokeWeightMultiplier;
+        }
+    }
+
+    public draw(): void {
+        const startX: number = this.#start.getX(CoordinateMode.CANVAS);
+        const startY: number = this.#start.getY(CoordinateMode.CANVAS);
+        const endX: number = this.#end.getX(CoordinateMode.CANVAS);
+        const endY: number = this.#end.getY(CoordinateMode.CANVAS);
+        const p5: P5Lib = P5Context.p5;
+        p5.strokeWeight(CanvasContext.defaultStroke * this.#strokeWeightMultiplier);
+        p5.stroke(this.#color.color);
+        p5.line(startX, startY, endX, endY);
+    }
 }

@@ -21,24 +21,42 @@
  * for full license details.
  */
 
-export interface Design {
-    /**
-     * Save single image of the design.
-     */
-    readonly save: () => void;
+import { CanvasScreen } from '@batpb/genart';
 
-    /**
-     * Save full wallpaper set for the design.
-     */
-    readonly saveSet: () => void;
+import { Design } from '../design';
 
-    /**
-     * Save individual color images of the design.
-     */
-    readonly saveColors: () => void;
+import { Line } from './line';
 
-    /**
-     * Save the full palette of the design.
-     */
-    readonly savePalette: () => void;
+export abstract class Lines extends CanvasScreen implements Design {
+    readonly #LINES: Line[] = [];
+
+    protected constructor(name: string) {
+        super(name);
+    }
+
+    public override draw(): void {
+        this.#LINES.forEach((line: Line): void => {
+            line.draw();
+        });
+    }
+
+    protected addLine(line: Line): void {
+        this.#LINES.push(line);
+    }
+
+    public save(): void {
+        console.log('save() placeholder');
+    }
+
+    public saveColors(): void {
+        console.log('saveColors() placeholder');
+    }
+
+    public savePalette(): void {
+        console.log('savePalette() placeholder');
+    }
+
+    public saveSet(): void {
+        console.log('saveSet() placeholder');
+    }
 }
