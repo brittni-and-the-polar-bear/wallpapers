@@ -26,21 +26,21 @@ import P5Lib from 'p5';
 import '../../assets/styles/sketch.css';
 
 import {
-    ASPECT_RATIOS,
-    CanvasContext,
+    ASPECT_RATIOS, BRITTNI_PALETTE,
+    CanvasContext, CanvasScreen,
     P5Context,
     ScreenHandler
 } from '@batpb/genart';
 
-import { SketchScreen } from './sketch-screen';
+import { FallingLines } from './falling-lines';
 
 function sketch(p5: P5Lib): void {
     p5.setup = (): void => {
         P5Context.initialize(p5);
-        CanvasContext.buildCanvas(ASPECT_RATIOS.SQUARE, 720, p5.P2D, true);
-        const screen: SketchScreen = new SketchScreen();
-        ScreenHandler.addScreen(screen);
-        ScreenHandler.currentScreen = screen.NAME;
+        CanvasContext.buildCanvas(ASPECT_RATIOS.SOCIAL_VIDEO, 720, p5.P2D, true);
+        const fallingLines: CanvasScreen = new FallingLines(BRITTNI_PALETTE);
+        ScreenHandler.addScreen(fallingLines);
+        ScreenHandler.currentScreen = fallingLines.NAME;
     };
 
     p5.draw = (): void => {
