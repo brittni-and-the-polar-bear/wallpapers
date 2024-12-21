@@ -21,8 +21,9 @@
  * for full license details.
  */
 
-import {Color, ColorSelector, ColorSelectorType, P5Context,} from "@batpb/genart";
-import P5Lib from "p5";
+import P5Lib from 'p5';
+
+import { Color, ColorSelector, ColorSelectorType, P5Context } from '@batpb/genart';
 
 export class HexColorSelector extends ColorSelector {
     public constructor(random: boolean, hexes: string[]) {
