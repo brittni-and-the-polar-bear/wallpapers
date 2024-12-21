@@ -26,19 +26,32 @@ import P5Lib from 'p5';
 import '../../assets/styles/sketch.css';
 
 import {
-    ASPECT_RATIOS, BRITTNI_PALETTE,
-    CanvasContext, CanvasScreen,
+    ASPECT_RATIOS,
+    BRITTNI_PALETTE,
+    CanvasContext,
+    CanvasScreen, ColorSelector,
     P5Context,
+    PaletteColorSelector,
     ScreenHandler
 } from '@batpb/genart';
 
-import { FallingLines } from './falling-lines';
+import {FallingLines, LinesConfig, LineThickness} from './lines';
 
 function sketch(p5: P5Lib): void {
     p5.setup = (): void => {
         P5Context.initialize(p5);
-        CanvasContext.buildCanvas(ASPECT_RATIOS.SOCIAL_VIDEO, 720, p5.P2D, true);
-        const fallingLines: CanvasScreen = new FallingLines(BRITTNI_PALETTE);
+        CanvasContext.buildCanvas(ASPECT_RATIOS.SQUARE, 720, p5.P2D, true);
+
+        const selector: ColorSelector = new PaletteColorSelector(BRITTNI_PALETTE);
+
+        const config: LinesConfig = {
+            NAME: 'Falling Lines',
+            THICKNESS_CATEGORY: LineThickness.MEDIUM,
+            SAME_THICKNESS: false,
+            COLOR_SELECTOR: selector
+        }
+
+        const fallingLines: CanvasScreen = new FallingLines(config);
         ScreenHandler.addScreen(fallingLines);
         ScreenHandler.currentScreen = fallingLines.NAME;
     };

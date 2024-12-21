@@ -22,3 +22,47 @@
  */
 
 // vertical solid color lines
+
+import { Lines, LinesConfig } from './lines';
+import P5Lib from "p5";
+import {Color, Coordinate, CoordinateMapper, CoordinateMode, P5Context, Random} from "@batpb/genart";
+import {Line} from "./line";
+
+export class FallingLines extends Lines {
+    public constructor(config: LinesConfig) {
+        super(config);
+    }
+
+    protected buildLines(): void {
+        const p5: P5Lib = P5Context.p5;
+        const canvasWidth: number = p5.width;
+        const canvasHeight: number = p5.height;
+        let minLineLength: number = canvasHeight * this.minLineLengthRatio;
+        let maxLineLength: number = canvasHeight * this.maxLineLengthRatio;
+        const spaceX: number = canvasWidth / this.lineTotal;
+        let startX: number = Random.randomFloat(0, spaceX);
+
+        while (startX < CoordinateMapper.maxX) {
+            const startY: number = 0;
+            const endX: number = startX;
+            let possibleLength: number = maxLineLength;
+
+            // if (this.#maxLength === MaxLength.RIGHT) {
+            //     length = p5.map(startX, CoordinateMapper.minX, CoordinateMapper.maxX, minLineLength, maxLineLength);
+            // } else if (this.#maxLength === MaxLength.LEFT) {
+            //     length = p5.map(startX, CoordinateMapper.minX, CoordinateMapper.maxX, maxLineLength, minLineLength);
+            // } else {
+            //     possibleLength = maxLineLength;
+            // }
+
+            const endY: number = Random.randomFloat(minLineLength, possibleLength);
+            const color: Color = this.colorSelector.getColor();
+            const start: Coordinate = new Coordinate();
+            start.setPosition(new P5Lib.Vector(startX, startY), CoordinateMode.CANVAS);
+            const end: Coordinate = new Coordinate();
+            end.setPosition(new P5Lib.Vector(endX, endY), CoordinateMode.CANVAS);
+            this.addLine(new Line(start, end, color));
+            startX += Random.randomFloat(spaceX * 0.25, spaceX * 1.25);
+        }
+    }
+}

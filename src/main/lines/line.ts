@@ -23,9 +23,9 @@
 
 import P5Lib from 'p5';
 
-import { CanvasContext, Color, Coordinate, CoordinateMode, P5Context } from '@batpb/genart';
+import { CanvasContext, CanvasRedrawListener, Color, Coordinate, CoordinateMode, P5Context } from '@batpb/genart';
 
-export class Line {
+export class Line implements CanvasRedrawListener {
     #start: Coordinate;
     #end: Coordinate;
     #strokeWeightMultiplier: number = 1;
@@ -50,5 +50,10 @@ export class Line {
         p5.strokeWeight(CanvasContext.defaultStroke * this.#strokeWeightMultiplier);
         p5.stroke(this.#color.color);
         p5.line(startX, startY, endX, endY);
+    }
+
+    public canvasRedraw(): void {
+        this.#start.remap();
+        this.#end.remap();
     }
 }
