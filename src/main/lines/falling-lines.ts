@@ -21,13 +21,17 @@
  * for full license details.
  */
 
-// vertical solid color lines
+import P5Lib from 'p5';
+
+import { Color, Coordinate, CoordinateMapper, CoordinateMode, P5Context, Random } from '@batpb/genart';
+
+import { Line } from './line';
 
 import { Lines, LinesConfig } from './lines';
-import P5Lib from "p5";
-import {Color, Coordinate, CoordinateMapper, CoordinateMode, P5Context, Random} from "@batpb/genart";
-import {Line} from "./line";
 
+/**
+ * vertical solid color lines
+ */
 export class FallingLines extends Lines {
     public constructor(config: LinesConfig) {
         super(config);
@@ -37,15 +41,15 @@ export class FallingLines extends Lines {
         const p5: P5Lib = P5Context.p5;
         const canvasWidth: number = p5.width;
         const canvasHeight: number = p5.height;
-        let minLineLength: number = canvasHeight * this.minLineLengthRatio;
-        let maxLineLength: number = canvasHeight * this.maxLineLengthRatio;
+        const minLineLength: number = canvasHeight * this.minLineLengthRatio;
+        const maxLineLength: number = canvasHeight * this.maxLineLengthRatio;
         const spaceX: number = canvasWidth / this.lineTotal;
         let startX: number = Random.randomFloat(0, spaceX);
 
         while (startX < CoordinateMapper.maxX) {
             const startY: number = 0;
             const endX: number = startX;
-            let possibleLength: number = maxLineLength;
+            const possibleLength: number = maxLineLength;
 
             // if (this.#maxLength === MaxLength.RIGHT) {
             //     length = p5.map(startX, CoordinateMapper.minX, CoordinateMapper.maxX, minLineLength, maxLineLength);

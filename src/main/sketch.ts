@@ -35,7 +35,7 @@ import {
     ScreenHandler
 } from '@batpb/genart';
 
-import {FallingLines, LinesConfig, LineThickness} from './lines';
+import { FallingLines, LinesConfig, LineThickness } from './lines';
 
 function sketch(p5: P5Lib): void {
     p5.setup = (): void => {
@@ -49,7 +49,7 @@ function sketch(p5: P5Lib): void {
             THICKNESS_CATEGORY: LineThickness.MEDIUM,
             SAME_THICKNESS: false,
             COLOR_SELECTOR: selector
-        }
+        };
 
         const fallingLines: CanvasScreen = new FallingLines(config);
         ScreenHandler.addScreen(fallingLines);

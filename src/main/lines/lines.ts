@@ -23,7 +23,7 @@
 
 import P5Lib from 'p5';
 
-import {ASPECT_RATIOS, CanvasContext, CanvasScreen, ColorSelector, P5Context, Random} from '@batpb/genart';
+import { ASPECT_RATIOS, CanvasContext, CanvasScreen, ColorSelector, P5Context, Random } from '@batpb/genart';
 
 import { Design } from '../design';
 
