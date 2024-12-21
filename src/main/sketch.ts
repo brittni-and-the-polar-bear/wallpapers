@@ -57,10 +57,12 @@ function sketch(p5: P5Lib): void {
             selector = new PaletteColorSelector(BRITTNI_PALETTE);
         }
 
+        const thickness: LineThickness = Random.randomElement([LineThickness.THIN, LineThickness.MEDIUM, LineThickness.THICK]) ?? LineThickness.THIN;
+
         const config: LinesConfig = {
             NAME: 'Falling Lines',
-            THICKNESS_CATEGORY: LineThickness.MEDIUM,
-            SAME_THICKNESS: false,
+            THICKNESS_CATEGORY: thickness,
+            SAME_THICKNESS: Random.randomBoolean(),
             COLOR_SELECTOR: selector
         };
 
