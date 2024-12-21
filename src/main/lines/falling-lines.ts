@@ -26,7 +26,6 @@ import P5Lib from 'p5';
 import { Color, Coordinate, CoordinateMapper, CoordinateMode, P5Context, Random } from '@batpb/genart';
 
 import { Line } from './line';
-
 import { Lines, LinesConfig } from './lines';
 
 /**
