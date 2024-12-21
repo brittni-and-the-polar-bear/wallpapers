@@ -64,7 +64,7 @@ export class FallingLines extends Lines {
             start.setPosition(new P5Lib.Vector(startX, startY), CoordinateMode.CANVAS);
             const end: Coordinate = new Coordinate();
             end.setPosition(new P5Lib.Vector(endX, endY), CoordinateMode.CANVAS);
-            this.addLine(new Line(start, end, color));
+            this.addLine(new Line(start, end, color, this.getThickness()));
             startX += Random.randomFloat(spaceX * 0.25, spaceX * 1.25);
         }
     }
