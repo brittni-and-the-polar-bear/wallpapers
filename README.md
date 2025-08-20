@@ -1,3 +1,6 @@
+> [!CAUTION]
+> # This repository has been ARCHIVED.
+
 # wallpapers
 
 Copyright (C) 2024 brittni and the polar bear LLC.
