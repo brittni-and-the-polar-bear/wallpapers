@@ -38,7 +38,7 @@ export default tsEslint.config(
     es_x.configs['flat/restrict-to-es2022'],
     node.configs['flat/recommended'],
     security.configs.recommended,
-    stylistic.configs['recommended-flat'],
+    stylistic.configs['recommended'],
     ...tsEslint.configs.recommendedTypeChecked,
     ...tsEslint.configs.strictTypeChecked,
     ...tsEslint.configs.stylisticTypeChecked,
@@ -47,8 +47,7 @@ export default tsEslint.config(
             ecmaVersion: 2022,
             sourceType: 'module',
             parserOptions: {
-                projectService: true,
-                tsconfigRootDir: import.meta.dirname
+                projectService: true
             }
         },
         rules: {
@@ -150,7 +149,7 @@ export default tsEslint.config(
                 'single',
                 {
                     avoidEscape: true,
-                    allowTemplateLiterals: true
+                    allowTemplateLiterals: 'always'
                 }
             ],
 
